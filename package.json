@@ -1,12 +1,15 @@
 {
     "name": "telesur_test_app",
     "version": "1.0.0",
-    "main": "index.js",
+    "main": "src/dist/main.js",
     "license": "MIT",
+    "prisma": {
+        "schema": "src/prisma/schema.prisma"
+    },
     "scripts": {
         "build": "npx tsc",
-        "start": "node dist/main.js",
-        "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/main.js\""
+        "start": "node /src/dist/main.js",
+        "dev": "concurrently \"npx tsc --watch\" \"nodemon -q /src/dist/main.js\""
     },
     "dependencies": {
         "@prisma/client": "^4.3.1",

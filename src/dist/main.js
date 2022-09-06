@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
+const tracer_1 = require("./helper/tracer");
 const node_cron_1 = __importDefault(require("node-cron"));
 const batch_1 = require("./controller/batch");
 const cors_1 = __importDefault(require("cors"));
@@ -15,7 +16,7 @@ app.get("/batch/:id", batch_1.getResults);
 //runs every minute 
 node_cron_1.default.schedule("* * * * *", () => {
     console.log("running job...");
-    // tracert("google.com");
+    (0, tracer_1.tracert)("google.com");
 });
 app.listen(port, () => {
     console.log(`⚡️[server]: Server is running at http://localhost:${port}`);

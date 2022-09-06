@@ -12,7 +12,7 @@ interface IHop {
 const initCsv = () => {
   const date = DateTime.now().toFormat("yy-MM-dd_HHmmss");
   const csvWriter = createCsvWriter({
-    path: `./dump/result_${date}.csv`,
+    path: `./src/dump/result_${date}.csv`,
     header: [
       { id: "hop", title: "HOP" },
       { id: "ip", title: "IP" },
