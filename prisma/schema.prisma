@@ -1,0 +1,31 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Batch {
+  id    Int     @id @default(autoincrement())
+  destinationIp String
+  destinationAdres String
+  hops Int
+  createdAt DateTime @default(now())
+  results Result[]
+}
+
+model Result{
+  id    Int     @id @default(autoincrement())
+  hop   Int
+  ip    String
+  date  String
+  batch   Batch    @relation(fields: [batchId], references: [id])
+  batchId  Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

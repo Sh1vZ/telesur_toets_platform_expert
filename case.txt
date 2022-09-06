@@ -1,0 +1,12 @@
+Test-case: Automatisering
+
+- Automatiseer de tracing route naar www.google.com vanuit een terminal. De resultaten moeten
+  opgeslagen worden in csv format.
+- Lees de csv file met tracing resultaten in een database. De IP’s moeten per record
+  onderscheiden worden door een datum.
+- Maak een gui interface in php om de resultaten te tonen vanuit de database. Zoeken naar de
+  resultaten van de host op datum en of ip route moet mogelijk zijn.
+- De resultaten moeten dagelijks om 6:00 am automatisch plaatst vinden.
+
+Opmerking: Je ben vrij om any database, OS en scripting taal te gebruiken voor het opslaan van de
+resultaten in csv format.
