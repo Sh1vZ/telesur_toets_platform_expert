@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import prisma from "../client";
+import prisma from "../db/client";
 
 export const getBatch = async (req: Request, res: Response) => {
   const getBatches: Object[] = await prisma.batch.findMany({

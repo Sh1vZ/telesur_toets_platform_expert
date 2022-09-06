@@ -1,7 +1,7 @@
 const Traceroute = require("nodejs-traceroute");
 const createCsvWriter = require("csv-writer").createObjectCsvWriter;
 import { DateTime } from "luxon";
-import prisma from "../client";
+import prisma from "../db/client";
 
 interface IHop {
   ip: string;
