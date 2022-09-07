@@ -10,6 +10,9 @@ export const getBatch = async (req: Request, res: Response) => {
       hops: true,
       createdAt: true,
     },
+    orderBy: {
+      createdAt: "desc",
+    },
   });
   return res.json({"data":getBatches});
 };

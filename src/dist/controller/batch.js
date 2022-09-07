@@ -23,6 +23,9 @@ const getBatch = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             hops: true,
             createdAt: true,
         },
+        orderBy: {
+            createdAt: "desc",
+        },
     });
     return res.json({ "data": getBatches });
 });
