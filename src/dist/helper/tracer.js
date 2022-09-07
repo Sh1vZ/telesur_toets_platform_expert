@@ -16,7 +16,7 @@ exports.tracert = void 0;
 const Traceroute = require("nodejs-traceroute");
 const createCsvWriter = require("csv-writer").createObjectCsvWriter;
 const luxon_1 = require("luxon");
-const client_1 = __importDefault(require("../client"));
+const client_1 = __importDefault(require("../db/client"));
 const initCsv = () => {
     const date = luxon_1.DateTime.now().toFormat("yy-MM-dd_HHmmss");
     const csvWriter = createCsvWriter({
@@ -52,11 +52,11 @@ const tracert = (url) => {
             console.log(obj);
         })
             .on("close", (code) => __awaiter(void 0, void 0, void 0, function* () {
-            var _a;
+            var _a, _b;
             console.log(`close: code ${code}`);
             console.log("data inserting...");
             initCsv().writeRecords(trace);
-            const totalHops = (_a = trace.at(-1)) === null || _a === void 0 ? void 0 : _a.hop;
+            const totalHops = (_b = (_a = trace.at(-1)) === null || _a === void 0 ? void 0 : _a.hop) !== null && _b !== void 0 ? _b : 0;
             const batch = yield client_1.default.batch.create({
                 data: {
                     destinationIp: destinationIp,

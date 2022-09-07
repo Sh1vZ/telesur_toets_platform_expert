@@ -13,7 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getResults = exports.getBatch = void 0;
-const client_1 = __importDefault(require("../client"));
+const client_1 = __importDefault(require("../db/client"));
 const getBatch = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const getBatches = yield client_1.default.batch.findMany({
         select: {
@@ -24,7 +24,7 @@ const getBatch = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             createdAt: true,
         },
     });
-    return res.json(getBatches);
+    return res.json({ "data": getBatches });
 });
 exports.getBatch = getBatch;
 const getResults = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -40,6 +40,6 @@ const getResults = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
             date: true,
         },
     });
-    return res.json(getResults);
+    return res.json({ "data": getResults });
 });
 exports.getResults = getResults;

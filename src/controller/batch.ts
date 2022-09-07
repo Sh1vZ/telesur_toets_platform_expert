@@ -11,7 +11,7 @@ export const getBatch = async (req: Request, res: Response) => {
       createdAt: true,
     },
   });
-  return res.json(getBatches);
+  return res.json({"data":getBatches});
 };
 
 export const getResults = async (req: Request, res: Response) => {
@@ -27,5 +27,5 @@ export const getResults = async (req: Request, res: Response) => {
       date: true,
     },
   });
-  return res.json(getResults);
+  return res.json({"data":getResults});
 };

@@ -48,7 +48,7 @@ export const tracert = (url: string) => {
         console.log(`close: code ${code}`);
         console.log("data inserting...");
         initCsv().writeRecords(trace);
-        const totalHops = trace.at(-1)?.hop;
+        const totalHops = trace.at(-1)?.hop ?? 0;
         const batch = await prisma.batch.create({
           data: {
             destinationIp: destinationIp,
